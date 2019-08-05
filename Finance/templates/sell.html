@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %}
+<h1> Purchase Shares </h1>
+{% endblock %}
+
+{% block main %}
+<h3>Sell Shares</h3>
+<br>
+<form action="/sell" method="post">
+    <div class="form-group">
+    <label for="shares">Select a share:</label>
+    <select class="form-control" name="symbol">
+        {% for share in shares %}
+      <option>{{ share["share"] }}</option>
+        {% endfor %}
+    </select>
+  </div>
+
+    <div class="form-group">
+        <input autocomplete="off" autofocus class="form-control" name="shares" placeholder="# of shares" type="text">
+    </div>
+    <button class="btn btn-primary" type="submit"> Submit </button>
+</form>
+
+{% endblock %}
